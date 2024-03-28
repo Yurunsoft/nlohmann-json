@@ -514,7 +514,7 @@ TEST_CASE_TEMPLATE("Serialization of classes with no member variables", T,
                    emptys::empty_intrusive_non_intrusive_only_serialize,
                    emptys::empty_only_serialize)
 {
-    SECTION("empty")
+    SECTION("serialization empty")
     {
         {
             T empty;
@@ -530,7 +530,7 @@ TEST_CASE_TEMPLATE("Serialization/deserialization of classes with no member vari
                    emptys::empty_non_intrusive,
                    emptys::empty_non_intrusive_with_default)
 {
-    SECTION("empty")
+    SECTION("serialization and deserialization empty")
     {
         {
             T empty;

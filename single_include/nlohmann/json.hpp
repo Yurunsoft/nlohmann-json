@@ -2678,7 +2678,7 @@ JSON_HEDLEY_DIAGNOSTIC_POP
         NLOHMANN_JSON_PASTE3, \
         NLOHMANN_JSON_PASTE2, \
         NLOHMANN_JSON_PASTE1)(__VA_ARGS__))
-#define NLOHMANN_JSON_PASTE1(func) func##_DEFAULT
+#define NLOHMANN_JSON_PASTE1(func) func##_DEFAULT()
 #define NLOHMANN_JSON_PASTE2(func, v1) func(v1)
 #define NLOHMANN_JSON_PASTE3(func, v1, v2) NLOHMANN_JSON_PASTE2(func, v1) NLOHMANN_JSON_PASTE2(func, v2)
 #define NLOHMANN_JSON_PASTE4(func, v1, v2, v3) NLOHMANN_JSON_PASTE2(func, v1) NLOHMANN_JSON_PASTE3(func, v2, v3)
@@ -2746,9 +2746,9 @@ JSON_HEDLEY_DIAGNOSTIC_POP
 #define NLOHMANN_JSON_TO(v1) nlohmann_json_j[#v1] = nlohmann_json_t.v1;
 #define NLOHMANN_JSON_FROM(v1) nlohmann_json_j.at(#v1).get_to(nlohmann_json_t.v1);
 #define NLOHMANN_JSON_FROM_WITH_DEFAULT(v1) nlohmann_json_t.v1 = nlohmann_json_j.value(#v1, nlohmann_json_default_obj.v1);
-#define NLOHMANN_JSON_TO_DEFAULT nlohmann_json_j = nlohmann::json::parse("{}"); (void) nlohmann_json_t;
-#define NLOHMANN_JSON_FROM_DEFAULT (void) nlohmann_json_j; (void) nlohmann_json_t;
-#define NLOHMANN_JSON_FROM_WITH_DEFAULT_DEFAULT (void) nlohmann_json_j; (void) nlohmann_json_t; (void) nlohmann_json_default_obj;
+#define NLOHMANN_JSON_TO_DEFAULT() nlohmann_json_j = nlohmann::json::parse("{}"); (void) nlohmann_json_t;
+#define NLOHMANN_JSON_FROM_DEFAULT() (void) nlohmann_json_j; (void) nlohmann_json_t;
+#define NLOHMANN_JSON_FROM_WITH_DEFAULT_DEFAULT() (void) nlohmann_json_j; (void) nlohmann_json_t; (void) nlohmann_json_default_obj;
 
 /*!
 @brief macro
